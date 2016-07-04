@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  jekyll:
+    tty: true
+    image: e76f7fd34b0c
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/app
