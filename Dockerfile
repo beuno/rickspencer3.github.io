@@ -27,14 +27,16 @@ ENV PATH=/opt/bitnami/ruby/bin:$PATH
 
 # Ruby base template
 WORKDIR /app
+
+EXPOSE 4000
+
 COPY Gemfile* /app/
 RUN bundle install
 
 COPY ./jekyll-entrypoint.sh /
 ENTRYPOINT ["/jekyll-entrypoint.sh"]
 
-
-
+CMD ["jekyll","serve", "--watch", "-H", "0.0.0.0"]
 
 #COPY . /app
-CMD ["irb"]
+#CMD ["irb"]
