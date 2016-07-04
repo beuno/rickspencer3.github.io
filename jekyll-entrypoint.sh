@@ -7,7 +7,7 @@ check_for_updates &
 echo "building new jekyll content"
 
 #TODO: don't run if /app exists
-bundle exec jekyll new . --force
+jekyll new . --force
 
 
 exec tini -- "$@"

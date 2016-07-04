@@ -26,12 +26,14 @@ ENV PATH=/opt/bitnami/ruby/bin:$PATH
 ## STACKSMITH-END: Modifications below this line will be unchanged when regenerating
 
 # Ruby base template
-COPY Gemfile* /app/
+COPY Gemfile* /
+RUN gem install jekyll --no-document
+
 WORKDIR /app/
 
 EXPOSE 4000
 
-RUN bundle install
+#RUN bundle install
 
 COPY ./jekyll-entrypoint.sh /
 ENTRYPOINT ["/jekyll-entrypoint.sh"]
